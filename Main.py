@@ -47,20 +47,6 @@ def send_email_via_gmail(service, sender, to, subject, body):
         print(f"An error occurred: {error}")
         return None
 
-def send_email():
-    account_sid = 'ACc0d3ed0d5b4e98d1e195e5d010e89c7c'
-    auth_token = '35c70fbaef05d6a4f32c48420b52280b'
-    client = Client(account_sid, auth_token)
-    message = client.messages.create(
-    messaging_service_sid='MG1ffe9b695d972a0e4c539aa64786eff8',
-        body='Wild Fire Detected Please alert!!!',
-        to='+918099454422'
-        )
-    return message.sid
-main = tkinter.Tk()
-main.title("A Forest Fire Identification Method for Unmanned Aerial Vehicle Monitoring Video Images") #designing main screen
-main.geometry("1300x1200")
-
 global filename
 
 # Function to show the popup
