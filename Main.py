@@ -27,28 +27,6 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-
-
-def send_email_via_gmail(service, sender, to, subject, body):
-    """Send an email using the Gmail API."""
-    message = MIMEMultipart()
-    message['to'] = to
-    message['subject'] = subject
-    msg = MIMEText(body)
-    message.attach(msg)
-
-    raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
-
-    try:
-        message = service.users().messages().send(userId="me", body={'raw': raw_message}).execute()
-        print(f"Message Id: {message['id']}")
-        return message
-    except Exception as error:
-        print(f"An error occurred: {error}")
-        return None
-
-global filename
-
 # Function to show the popup
 def show_popup():
     messagebox.showinfo("Information", "Fire Detected Message sent to the authority!")
